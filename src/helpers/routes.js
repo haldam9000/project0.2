@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-export function IsUserRedirect({ user, loggedInPath, children, ...restProps }) {
+export function IsUserRedirect({ user, loggedInPath, FIFA, ...restProps }) {
     return (
         <Route
             {...restProps}
             render={() => {
                 if (!user) {
-                    return children;
+                    return FIFA;
                 }
                 
                 if (user) {
@@ -26,13 +26,13 @@ export function IsUserRedirect({ user, loggedInPath, children, ...restProps }) {
     )
 }
 
-export function ProtectedRoute({ user, children, ...restProps }) {
+export function ProtectedRoute({ user, FIFA, ...restProps }) {
     return (
         <Route
             {...restProps}
             render={({ location }) => {
                 if (user) {
-                    return children;
+                    return FIFA;
                 }
                 
                 if (!user) {
