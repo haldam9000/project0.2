@@ -31,7 +31,7 @@ export function BrowseContainer({ slides }) {
     }, [slides, category]);
     
     useEffect(() => {
-      const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.title', 'data.genre'] });
+      const fuse = new Fuse(slideRows, { keys: ['data.description', 'data.match', 'data.player'] });
       const results = fuse.search(searchTerm).map(({ item }) => item);
       
       if (slideRows.length > 0 && searchTerm.length > 3 && results.length > 0) {
@@ -48,15 +48,15 @@ export function BrowseContainer({ slides }) {
             <Header src="joker1" dontShowOnSmallViewPort>
                 <Header.Frame>
                     <Header.Group>
-                        <Header.Logo to={ROUTES.HOME} src="/images/misc/logo.svg" alt="Netflix" />
+                        <Header.Logo to={ROUTES.HOME} src="/images/misc/logo.svg" alt="project0" />
                         <Header.Link 
                             active={category === 'series' ? 'true' : 'false'}
                             onClick={() => setCategory('series')}>
                             Series
                         </Header.Link>
                         <Header.Link 
-                            active={category === 'films' ? 'true' : 'false'}
-                            onClick={() => setCategory('films')}>
+                            active={category === 'matches' ? 'true' : 'false'}
+                            onClick={() => setCategory('matches')}>
                             Films
                         </Header.Link>
                     </Header.Group>
@@ -81,9 +81,7 @@ export function BrowseContainer({ slides }) {
                 <Header.Feature>
                     <Header.FeatureCallOut>Watch Joker Now</Header.FeatureCallOut>
                     <Header.Text>
-                    Forever alone in a crowd, failed comedian Arthur Fleck seeks connection as he walks the streets of Gotham
-                    City. Arthur wears two masks -- the one he paints for his day job as a clown, and the guise he projects in a
-                    futile attempt to feel like he's part of the world around him.
+                    //player info
                     </Header.Text>
                     <Header.PlayButton>Play</Header.PlayButton>
                 </Header.Feature>
